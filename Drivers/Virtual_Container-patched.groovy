@@ -218,7 +218,7 @@ def preloaded(myKey) {
 		myMap << [namespace:"Cobra", driver:"Weewx Weather Driver - With External Forecasting", ref:"Weewx Weather Driver - With External Forecasting (Cobra)"]
 	}
 	
-    def custom1 = [namespace:"shimbone", driver:"Contact-Switch Hybrid", ref:"Contact-Switch Hybrid (shimbone)"]
+    def custom1 = [namespace:"shimbone", driver:"Virtual Contact-Switch Hybrid", ref:"Contact-Switch Hybrid (shimbone)"]
     //def custom2 = [namespace:"Enter device namespace here", driver:"Enter Driver Name here", ref:"Enter the label you will use in Create Virtual Device to reference your driver"]
     //def custom3 = [namespace:"Enter device namespace here", driver:"Enter Driver Name here", ref:"Enter the label you will use in Create Virtual Device to reference your driver"]
     //def custom4 = [namespace:"Enter device namespace here", driver:"Enter Driver Name here", ref:"Enter the label you will use in Create Virtual Device to reference your driver"]
