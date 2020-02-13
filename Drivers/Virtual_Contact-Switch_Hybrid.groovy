@@ -41,7 +41,7 @@
 metadata {
 
 	definition (name: "Virtual Contact-Switch Hybrid", namespace: "shimbone", author: "Brett Error",
-		importUrl: "https://raw.githubusercontent.com/shimbone/Hubitat/master/Drivers/Shimbones%20Contact-Switch%20Hybrid.groovy"
+		importUrl: "https://raw.githubusercontent.com/shimbone/Scrubitat/master/Drivers/Virtual_Contact-Switch_Hybrid.groovy"
 	) {
 		capability "Switch"
 		capability "Sensor"

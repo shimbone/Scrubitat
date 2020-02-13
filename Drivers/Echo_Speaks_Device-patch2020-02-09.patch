@@ -1,0 +1,31 @@
+465c465
+<         runEvery1Minute("refreshData")
+---
+>         runEvery30Minutes("refreshData")
+2363,2370c2363,2379
+< def speak(String msg) {
+<     logTrace("speak() command received...")
+<     if(isCommandTypeAllowed("TTS")) {
+<         if(!msg) { logWarn("No Message sent with speak($msg) command", true) }
+<         // msg = cleanString(msg, true)
+<         speechCmd([cmdDesc: "SpeakCommand", message: msg, newVolume: (state?.newVolume ?: null), oldVolume: (state?.oldVolume ?: null), cmdDt: now()])
+<         incrementCntByKey("use_cnt_speak")
+<     }
+---
+> ////////////////////////////////////////////////////////////////////////////////////////////////////
+> //// Commented out 2020-02-09 - Brett Error
+> //// Made method speak() a wrapper around method playAnnouncement()
+> ////
+> //// def speak(String msg) {
+> ////     logTrace("speak() command received...")
+> ////     if(isCommandTypeAllowed("TTS")) {
+> ////         if(!msg) { logWarn("No Message sent with speak($msg) command", true) }
+> ////         // msg = cleanString(msg, true)
+> ////         speechCmd([cmdDesc: "SpeakCommand", message: msg, newVolume: (state?.newVolume ?: null), oldVolume: (state?.oldVolume ?: null), cmdDt: now()])
+> ////         incrementCntByKey("use_cnt_speak")
+> ////     }
+> //// }
+> ////////////////////////////////////////////////////////////////////////////////////////////////////
+> 
+> def speak(String msg){
+> 	playAnnouncement(msg)

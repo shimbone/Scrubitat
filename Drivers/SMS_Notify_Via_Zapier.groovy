@@ -26,7 +26,7 @@ metadata {
   	definition (name: "SMS Notify via Zapier", 
   	namespace: "shimbone", 
   	author: "Brett Error", 
-  	importUrl: "https://raw.githubusercontent.com/shimbone/Hubitat/master/Drivers/SMS%20Notify%20Via%20Zapier.groovy?token=ALM74YSEMGMAG5NM2A3DULC6GRBUY") {
+  	importUrl: "https://raw.githubusercontent.com/shimbone/Scrubitat/master/Drivers/SMS_Notify_Via_Zapier.groovy") {
     	
     	capability "Notification"
     	capability "Actuator"
