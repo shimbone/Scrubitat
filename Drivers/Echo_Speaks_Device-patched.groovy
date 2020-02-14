@@ -20,120 +20,123 @@ Boolean isST()       { return (getPlatform() == "SmartThings") }
 Boolean isWS()       { return false }
 
 metadata {
-    definition (name: "Echo Speaks Device", namespace: "tonesto7", author: "Anthony Santilli", importUrl: "https://raw.githubusercontent.com/shimbone/Scrubitat/master/Drivers/Echo_Speaks_Device-patched.groovy") {
-        // capability "Audio Mute" // Not Compatible with Hubitat
-        capability "Audio Notification"
-        // capability "Audio Track Data" // Not Compatible with Hubitat
-        capability "Audio Volume"
-        capability "Music Player"
-        capability "Notification"
-        capability "Refresh"
-        capability "Sensor"
-        capability "Speech Synthesis"
+	definition (
+		name: "Echo Speaks Device", namespace: "tonesto7", author: "Anthony Santilli",
+		importUrl: "https://raw.githubusercontent.com/shimbone/Scrubitat/master/Drivers/Echo_Speaks_Device-patched.groovy"
+	) {
+		// capability "Audio Mute" // Not Compatible with Hubitat
+		capability "Audio Notification"
+		// capability "Audio Track Data" // Not Compatible with Hubitat
+		capability "Audio Volume"
+		capability "Music Player"
+		capability "Notification"
+		capability "Refresh"
+		capability "Sensor"
+		capability "Speech Synthesis"
 
-        attribute "alarmVolume", "number"
-        attribute "alexaNotifications", "JSON_OBJECT"
-        attribute "alexaPlaylists", "JSON_OBJECT"
-        // attribute "alexaGuardStatus", "string"
-        attribute "alexaWakeWord", "string"
-        attribute "btDeviceConnected", "string"
-        attribute "btDevicesPaired", "JSON_OBJECT"
-        attribute "currentAlbum", "string"
-        attribute "currentStation", "string"
-        attribute "deviceFamily", "string"
-        attribute "deviceStatus", "string"
-        attribute "deviceStyle", "string"
-        attribute "deviceType", "string"
-        attribute "doNotDisturb", "string"
-        attribute "firmwareVer", "string"
-        attribute "followUpMode", "string"
-        attribute "lastCmdSentDt", "string"
-        attribute "lastSpeakCmd", "string"
-        attribute "lastSpokenToTime", "number"
-        attribute "lastVoiceActivity", "string"
-        attribute "lastUpdated", "string"
-        attribute "mediaSource", "string"
-        attribute "onlineStatus", "string"
-        attribute "permissions", "string"
-        attribute "supportedMusic", "string"
-        attribute "trackImage", "string"
-        attribute "trackImageHtml", "string"
+		attribute "alarmVolume", "number"
+		attribute "alexaNotifications", "JSON_OBJECT"
+		attribute "alexaPlaylists", "JSON_OBJECT"
+		// attribute "alexaGuardStatus", "string"
+		attribute "alexaWakeWord", "string"
+		attribute "btDeviceConnected", "string"
+		attribute "btDevicesPaired", "JSON_OBJECT"
+		attribute "currentAlbum", "string"
+		attribute "currentStation", "string"
+		attribute "deviceFamily", "string"
+		attribute "deviceStatus", "string"
+		attribute "deviceStyle", "string"
+		attribute "deviceType", "string"
+		attribute "doNotDisturb", "string"
+		attribute "firmwareVer", "string"
+		attribute "followUpMode", "string"
+		attribute "lastCmdSentDt", "string"
+		attribute "lastSpeakCmd", "string"
+		attribute "lastSpokenToTime", "number"
+		attribute "lastVoiceActivity", "string"
+		attribute "lastUpdated", "string"
+		attribute "mediaSource", "string"
+		attribute "onlineStatus", "string"
+		attribute "permissions", "string"
+		attribute "supportedMusic", "string"
+		attribute "trackImage", "string"
+		attribute "trackImageHtml", "string"
 
-        attribute "volume", "number"
-        attribute "wakeWords", "enum"
-        attribute "wifiNetwork", "string"
-        attribute "wasLastSpokenToDevice", "string"
-	    
-	attribute "audioTrackData", "JSON_OBJECT" // To support SharpTools.io Album Art feature
+		attribute "volume", "number"
+		attribute "wakeWords", "enum"
+		attribute "wifiNetwork", "string"
+		attribute "wasLastSpokenToDevice", "string"
 
-        command "playText", ["string"] //This command is deprecated in ST but will work
-        command "playTextAndResume"
-        command "playTrackAndResume"
-        command "playTrackAndRestore"
-        command "playTextAndRestore"
-        command "replayText"
-        command "doNotDisturbOn"
-        command "doNotDisturbOff"
-        // command "followUpModeOn"
-        // command "followUpModeOff"
-        command "setAlarmVolume", ["number"]
-        command "resetQueue"
-        command "playWeather", ["number", "number"]
-        command "playSingASong", ["number", "number"]
-        command "playFlashBrief", ["number", "number"]
-        command "playFunFact", ["number", "number"]
-        command "playTraffic", ["number", "number"]
-        command "playJoke", ["number", "number"]
-        command "playSoundByName", ["string", "number", "number"]
-        command "playTellStory", ["number", "number"]
-        command "sayGoodbye", ["number", "number"]
-        command "sayGoodNight", ["number", "number"]
-        command "sayBirthday", ["number", "number"]
-        command "sayCompliment", ["number", "number"]
-        command "sayGoodMorning", ["number", "number"]
-        command "sayWelcomeHome", ["number", "number"]
-        // command "playCannedRandomTts", ["string", "number", "number"]
-        // command "playCannedTts", ["string", "string", "number", "number"]
-        command "playAnnouncement", ["string", "number", "number"]
-        command "playAnnouncement", ["string", "string", "number", "number"]
-        command "playAnnouncementAll", ["string", "string"]
-        command "playCalendarToday", ["number", "number"]
-        command "playCalendarTomorrow", ["number", "number"]
-        command "playCalendarNext", ["number", "number"]
-        command "stopAllDevices"
-        command "searchMusic", ["string", "string", "number", "number"]
-        command "searchAmazonMusic", ["string", "number", "number"]
-        command "searchAppleMusic", ["string", "number", "number"]
-        command "searchPandora", ["string", "number", "number"]
-        command "searchIheart", ["string", "number", "number"]
-        command "searchSiriusXm", ["string", "number", "number"]
-        command "searchSpotify", ["string", "number", "number"]
-        // command "searchTidal", ["string", "number", "number"]
-        command "searchTuneIn", ["string", "number", "number"]
-        command "sendAlexaAppNotification", ["string"]
-        command "executeSequenceCommand", ["string"]
-        command "executeRoutineId", ["string"]
-        command "createAlarm", ["string", "string", "string"]
-        command "createReminder", ["string", "string", "string"]
-        command "removeNotification", ["string"]
-        command "setWakeWord", ["string"]
-        command "renameDevice", ["string"]
-        command "storeCurrentVolume"
-        command "restoreLastVolume"
-        command "togglePlayback"
-        command "setVolumeAndSpeak", ["number", "string"]
-        command "setVolumeSpeakAndRestore", ["number", "string", "number"]
-        command "volumeUp"
-        command "volumeDown"
-        command "speechTest"
-        command "sendTestAnnouncement"
-        command "sendTestAnnouncementAll"
-        command "getDeviceActivity"
-        command "getBluetoothDevices"
-        command "connectBluetooth", ["string"]
-        command "disconnectBluetooth"
-        command "removeBluetooth", ["string"]
-        command "sendAnnouncementToDevices", ["string", "string", "string", "number", "number"]
+		attribute "audioTrackData", "JSON_OBJECT" // To support SharpTools.io Album Art feature
+
+		command "playText", ["string"] //This command is deprecated in ST but will work
+		command "playTextAndResume"
+		command "playTrackAndResume"
+		command "playTrackAndRestore"
+		command "playTextAndRestore"
+		command "replayText"
+		command "doNotDisturbOn"
+		command "doNotDisturbOff"
+		// command "followUpModeOn"
+		// command "followUpModeOff"
+		command "setAlarmVolume", ["number"]
+		command "resetQueue"
+		command "playWeather", ["number", "number"]
+		command "playSingASong", ["number", "number"]
+		command "playFlashBrief", ["number", "number"]
+		command "playFunFact", ["number", "number"]
+		command "playTraffic", ["number", "number"]
+		command "playJoke", ["number", "number"]
+		command "playSoundByName", ["string", "number", "number"]
+		command "playTellStory", ["number", "number"]
+		command "sayGoodbye", ["number", "number"]
+		command "sayGoodNight", ["number", "number"]
+		command "sayBirthday", ["number", "number"]
+		command "sayCompliment", ["number", "number"]
+		command "sayGoodMorning", ["number", "number"]
+		command "sayWelcomeHome", ["number", "number"]
+		// command "playCannedRandomTts", ["string", "number", "number"]
+		// command "playCannedTts", ["string", "string", "number", "number"]
+		command "playAnnouncement", ["string", "number", "number"]
+		command "playAnnouncement", ["string", "string", "number", "number"]
+		command "playAnnouncementAll", ["string", "string"]
+		command "playCalendarToday", ["number", "number"]
+		command "playCalendarTomorrow", ["number", "number"]
+		command "playCalendarNext", ["number", "number"]
+		command "stopAllDevices"
+		command "searchMusic", ["string", "string", "number", "number"]
+		command "searchAmazonMusic", ["string", "number", "number"]
+		command "searchAppleMusic", ["string", "number", "number"]
+		command "searchPandora", ["string", "number", "number"]
+		command "searchIheart", ["string", "number", "number"]
+		command "searchSiriusXm", ["string", "number", "number"]
+		command "searchSpotify", ["string", "number", "number"]
+		// command "searchTidal", ["string", "number", "number"]
+		command "searchTuneIn", ["string", "number", "number"]
+		command "sendAlexaAppNotification", ["string"]
+		command "executeSequenceCommand", ["string"]
+		command "executeRoutineId", ["string"]
+		command "createAlarm", ["string", "string", "string"]
+		command "createReminder", ["string", "string", "string"]
+		command "removeNotification", ["string"]
+		command "setWakeWord", ["string"]
+		command "renameDevice", ["string"]
+		command "storeCurrentVolume"
+		command "restoreLastVolume"
+		command "togglePlayback"
+		command "setVolumeAndSpeak", ["number", "string"]
+		command "setVolumeSpeakAndRestore", ["number", "string", "number"]
+		command "volumeUp"
+		command "volumeDown"
+		command "speechTest"
+		command "sendTestAnnouncement"
+		command "sendTestAnnouncementAll"
+		command "getDeviceActivity"
+		command "getBluetoothDevices"
+		command "connectBluetooth", ["string"]
+		command "disconnectBluetooth"
+		command "removeBluetooth", ["string"]
+		command "sendAnnouncementToDevices", ["string", "string", "string", "number", "number"]
     }
 
     preferences {

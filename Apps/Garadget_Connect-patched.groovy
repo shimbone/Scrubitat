@@ -35,16 +35,17 @@ private getServerUrl() 		{ if(!settings.serverUrl){return getApiServerUrl()} }
 
  // Automatically generated. Make future change here.
 definition(
-    name: "Garadget (Connect)",
-    namespace: "fuzzysb",
-    author: "Stuart Buchanan",
-    description: "Garadget Integration",
-    category: "SmartThings Labs",
+	name: "Garadget (Connect)",
+	namespace: "fuzzysb",
+	author: "Stuart Buchanan",
+	description: "Garadget Integration",
+	category: "SmartThings Labs",
 	iconUrl:   "https://dl.dropboxusercontent.com/s/lkrub180btbltm8/garadget_128.png",
 	iconX2Url: "https://dl.dropboxusercontent.com/s/w8tvaedewwq56kr/garadget_256.png",
 	iconX3Url: "https://dl.dropboxusercontent.com/s/5hiec37e0y5py06/garadget_512.png",
-    oauth: true,
-    singleInstance: true
+	oauth: true,
+	importUrl: "https://raw.githubusercontent.com/shimbone/Scrubitat/master/Apps/Garadget_Connect-patched.groovy",
+	singleInstance: true
 ) {
     appSetting "serverUrl"
 }
@@ -52,10 +53,10 @@ definition(
 preferences {
 	page(name: "startPage", title: "Garadget Integration", content: "startPage", install: false)
 	page(name: "Credentials", title: "Fetch OAuth2 Credentials", content: "authPage", install: false)
-  page(name: "mainPage", title: "Garadget Integration", content: "mainPage")
-  page(name: "completePage", title: "${getVendorName()} is now connected to SmartThings!", content: "completePage")
+	page(name: "mainPage", title: "Garadget Integration", content: "mainPage")
+	page(name: "completePage", title: "${getVendorName()} is now connected to SmartThings!", content: "completePage")
 	page(name: "listDevices", title: "Garadget Devices", content: "listDevices", install: false)
-  page(name: "badCredentials", title: "Invalid Credentials", content: "badAuthPage", install: false)
+	page(name: "badCredentials", title: "Invalid Credentials", content: "badAuthPage", install: false)
 }
 
 mappings {
