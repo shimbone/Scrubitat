@@ -32,7 +32,7 @@
  //		to trigger again the next time around.
  //
  
- def driverVer(){ 
+def driverVer(){ 
  	// This is Device Driver Version
  	"20200212.02"
  }

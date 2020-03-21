@@ -12,14 +12,16 @@
 *  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed
 *  on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License
 *  for the specific language governing permissions and limitations under the License.
-* 		
-*
 *
 */
 
+//|2020-03-21	.042	Added fake Speechsysthesis capability in an effort to get HubConnect to support this device.
+//|					If this driver is indeed asked to produce speech, it will (not surprisingly) send an SMS
+//|					message instead.  But hey, at least it will also drop something in the log to that effect. :)
+
  def driverVer(){ 
  	// This is Device Driver Version
- 	"0.41"
+ 	"0.42"
  }
 
 metadata {
@@ -30,6 +32,7 @@ metadata {
     	
     	capability "Notification"
     	capability "Actuator"
+    	capability "SpeechSynthesis"
     	
     	command "setSubject", ["string"]
     	command "clearSubject"
@@ -123,6 +126,11 @@ def clearSubject(){
 	def descriptionText = "subject cleared"
 	sendEvent(name: "subject", value: "-", descriptionText: descriptionText)
 	if (settings.descText) infoLog(descriptionText)
+}
+
+def speak(msg){
+	infoLog("SMS via Zapier was asked to speak a message.  Sending an SMS message instead")
+	deviceNotification(msg)
 }
 
 // create this as "global" field
