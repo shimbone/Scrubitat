@@ -22,8 +22,8 @@
 import groovy.json.JsonSlurper
 metadata
 {
-	definition(name: "HubConnect settableTemperatureMeasurement", namespace: "shackrat", author: "Steve White", importUrl: "https://raw.githubusercontent.com/shimbone/Scrubitat/master/Drivers/HubConnect_settableTemperatureMeasurement.groovy")
-	{
+	definition(name: "HubConnect settableTemperatureMeasurement", namespace: "shackrat", author: "Steve White", importUrl: "https://github.com/shimbone/Scrubitat/raw/master/Drivers/HubConnect_settableTemperatureMeasurement.groovy")
+	{	
 		capability "Sensor"
 		capability "TemperatureMeasurement"
 		capability "Refresh"
